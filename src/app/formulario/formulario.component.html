@@ -1,1 +1,34 @@
-<p>formulario works!</p>
+<form #newPost="ngForm" (ngSubmit)="onSubmit(newPost.value)">
+  <div class="form-group">
+    <label>Titulo</label>
+    <input type="text" name="titulo" class="form-control" ngModel>
+  </div>
+  <div class="form-group">
+    <label>Autor</label>
+    <input type="text" name="autor" class="form-control" ngModel>
+  </div>
+  <div class="form-group">
+    <label>Titulo</label>
+
+    <textarea name="texto" cols="30" rows="10" name="texto" class="form-control" ngModel></textarea>
+  </div>
+  <div class="form-group">
+    <label>Imagen</label>
+    <input type="text" name="imagen" class="form-control" ngModel>
+  </div>
+  <div class="form-group">
+    <label>Categoria</label>
+    <select name="categoria" class="form-control" ngModel>
+      <option value="noticias">Noticias</option>
+      <option value="conciertos">
+        Conciertos
+      </option>
+      <option value="festivales">Festivales</option>
+      <option value="lanzamientos">Lanzamientos</option>
+      <option value="lifestyle">Lifestyle</option>
+    </select>
+  </div>
+  <button #btnPost>Crear nuevo post</button>
+
+
+</form>

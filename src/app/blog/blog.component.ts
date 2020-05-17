@@ -17,4 +17,12 @@ export class BlogComponent implements OnInit {
     this.impredPosts = await this.dataService.getAllPosts();
   }
 
+  async buscarCategoria($event) {
+    if ($event.target.value === 'todos') {
+      this.impredPosts = await this.dataService.getAllPosts();
+    } else {
+      this.impredPosts = await this.dataService.getPostsByCategoria($event.target.value);
+    }
+
+  }
 }
