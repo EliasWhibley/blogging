@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-blog',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
+  impredPosts: Post[];
+  constructor(private dataService: DataService) {
+    this.impredPosts = [];
+  }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.impredPosts = await this.dataService.getAllPosts();
   }
 
 }
