@@ -1,28 +1,40 @@
 <div class="row">
-  <button class="btn btn-block btn-danger" [routerLink]="['/new']">Nuevo post</button>
-  <div class="col-6">
-    <label for="changeCategoria">Filtrar por categorias</label>
-    <select name="changeCategoria" (change)="buscarCategoria($event)">
-      <option value="todos">Todos</option>
-      <option value="noticias">Noticias</option>
-      <option value="conciertos">
-        Conciertos
-      </option>
-      <option value="festivales">Festivales</option>
-      <option value="lanzamientos">Lanzamientos</option>
-      <option value="lifestyle">Lifestyle</option>
-    </select>
 
-  </div>
+
 
 </div>
-<div *ngFor="let post of this.impredPosts" class="row">
-  <div class="newPost">
-    <hr>
-    <h2>{{post.titulo}}</h2>
-    <img [src]="post.imagen" alt="">
-    <h3>{{post.autor}}</h3>
-    <h4>{{post.fecha | date: "MM/dd/yyyy"}}</h4>
-    <p>{{post.texto}}</p>
+<div class="row">
+  <div *ngFor="let post of this.impredPosts" class="row col-md-8">
+    <div class="card">
+      <img class="card-img-top" [src]="post.imagen" alt="">
+      <div class="card-body">
+        <h2 class="card-title">{{post.titulo}}</h2>
+
+        <p class="card-text">{{post.texto}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        Por: {{post.autor}} | {{post.fecha | date: "MM/dd/yyyy"}}
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Filtrar por categorias</h4>
+      </div>
+      <div class="card-body">
+        <select name="changeCategoria" class="form-control" (change)="buscarCategoria($event)">
+          <option value="todos">Todos</option>
+          <option value="noticias">Noticias</option>
+          <option value="conciertos">
+            Conciertos
+          </option>
+          <option value="festivales">Festivales</option>
+          <option value="lanzamientos">Lanzamientos</option>
+          <option value="lifestyle">Lifestyle</option>
+        </select>
+      </div>
+    </div>
   </div>
 </div>

@@ -10,7 +10,9 @@ import { Post } from '../models/post.model';
 export class BlogComponent implements OnInit {
   impredPosts: Post[];
   constructor(private dataService: DataService) {
-    this.impredPosts = [];
+    this.impredPosts = [
+
+    ];
   }
 
   async ngOnInit() {
