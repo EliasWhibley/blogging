@@ -7,10 +7,12 @@ import { UsersService } from './users.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private userService: UsersService) { }
+  constructor(public userService: UsersService) { }
 
   logOut() {
     this.userService.deleteToken();
 
   }
+
+
 }
